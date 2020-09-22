@@ -1,0 +1,2 @@
+# foodify
+Developed a responsive web application for ordering the food online, simulated the user's data into the database with MD5 and SHA authorization. Found lots of critical issues in several online ordering systems and we overcame security issues, as well as user-friendly UI/UX for easy access. We provide a facility for advanced table booking system in various restaurants for special occasions.
