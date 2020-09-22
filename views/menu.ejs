@@ -1,0 +1,44 @@
+<html>
+<head>
+    LOGO
+    <title></title>
+</head>
+<body>
+<span >Food Ordering System</span>
+<span>Welcome, <%name ? name : ''%></span>
+<br>
+<button onclick="window.location.href= '<%=`http://localhost:3000/${id}/dashboard`%>';">Dashboard</button>
+<button onclick="window.location.href= '<%=`http://localhost:3000/${id}/menu`%>';">Manage Menu</button>
+<button onclick="window.location.href='<%='http://localhost:3000/about'%>';">About</button>
+<button onclick="window.location.href='<%=`http://localhost:3000/${id}/logout`%>';">Logout</button>
+
+<table>
+    <tr>
+        <th>Item Number</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Options</th>
+    </tr>
+    <%if (menu && menu.length) { %>
+    <%let ind = 1;%>
+    <% for (const item of menu) { %>
+        <tr>
+            <td><%= ind ;%></td>
+            <td><%= item.name ;%></td>
+            <td><%= item.description ;%></td>
+            <td><%= item.price ;%></td>
+            <td>
+                <div class="dropdown">
+                    <button onclick="window.location.href='<%=`http://localhost:3000/${id}/menu/item/${item.id}/edit`%>';">Edit</button>
+                    <button onclick="window.location.href='<%=`http://localhost:3000/${id}/menu/item/${item.id}/delete`%>';">Delete</button>
+                </div>
+            </td>
+</tr>
+        <%ind++%>
+    <%}%>
+ <%}%>
+</table>
+<button onclick="window.location.href='<%=`http://localhost:3000/${id}/menu/item`%>';">Add Item</button>
+</body>
+</html>

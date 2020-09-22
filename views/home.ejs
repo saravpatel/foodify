@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+    </script>
+</head>
+
+<body>
+    <style>
+        <%
+    let emailErrors = '';
+    let passwordErrors = '';
+
+    if(typeof errors !== 'undefined' && errors.length > 0) {
+      for(const error of errors){
+        if(error.param === 'email'){
+          emailErrors += error.msg + "<br/>"
+        }
+        if(error.param === 'password'){
+          passwordErrors += error.msg + "<br/>"
+        }
+      }
+    }
+    %>
+        div.header {
+            /* border-color: black; */
+            margin-top: 50px;
+            /* border: 1px solid black; */
+        }
+
+        div.login {
+            margin-top: 60px;
+            padding: 10px;
+            margin-left: 36%;
+            margin-right: 36%;
+            border: 3px solid rgba(102, 112, 251, 0.753);
+            border-radius: 10px;
+            /* letter-spacing: 1px; */
+        }
+
+        h1 {
+            text-align: center;
+            letter-spacing: 0.7px;
+            font-size: 36px;
+        }
+
+        p.tagline {
+            text-align: center;
+            font-size: 22px;
+            letter-spacing: 0.7px;
+        }
+
+        div.sublogin {
+            font-size: 26px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgb(250, 174, 32);
+            margin: 25px;
+            letter-spacing: 1px;
+        }
+
+        input.login {
+            margin-left: 25px;
+            height: 20px;
+            font-size: 20px;
+            padding: 7px;
+            letter-spacing: 1px;
+            border-radius: 7px;
+        }
+
+        input.submit {
+            padding: 7px;
+            margin-left: 25px;
+            font-size: 16px;
+            height: 40px;
+            width: 100px;
+            border-radius: 7px;
+            background-color: rgb(250, 174, 32);
+            border: 1px solid rgb(255, 255, 255);
+            letter-spacing: 1px;
+        }
+
+        p.login {
+            font-size: 20px;
+            padding-left: 25px;
+            font-weight: bold;
+            letter-spacing: 0.8px;
+        }
+    </style>
+
+    <div class="header">
+        <h1>Welcome to Food Ordering System</h1>
+        <p class="tagline">
+            Are you a restaurant business owner? Sign up to create an online menu to your restaurant to allow your
+            customer to palce online orders for food.
+        </p>
+    </div>
+
+    <div class="login">
+        <div class="sublogin">
+            <span style="font-weight: bold;">Sign In</span>
+        </div>
+        <form action="/login" method="POST">
+            <p class="login">Username</p>
+            <input class="login" id="email" name="email" placeholder="E-MAIL" />
+            <% if(emailErrors != '') { %> <p><strong><%- emailErrors %></strong></p>  <% } %>
+            <p class="login">Password</p>
+            <input type="password" id="password" name="password" placeholder="PASSWORD" /><br>
+            <% if(passwordErrors != '') { %> <p><strong><%-passwordErrors %></strong></p>  <% } %>
+            <input style="margin-top: 20px;font-weight: bold;" class="submit" type="submit" value="Sign In" />
+            <p class="login">
+        </form>
+
+        <!-- <a href="/registration">New User?</a> -->
+        New User?
+        <a href="/register"><input style="font-weight: bold; width: 50%;margin-bottom: 5px;" class="submit"
+                type="submit" value="Registration" /></a>
+        </p>
+    </div>
+
+</body>
+
+</html>
